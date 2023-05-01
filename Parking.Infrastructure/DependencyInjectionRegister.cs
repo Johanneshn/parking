@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Parking.Application.Common.Interfaces;
+using Parking.Domain.Parking;
+using Parking.Domain.ParkingLot;
 using Parking.Infrastructure.Persistence;
 using Parking.Infrastructure.Repositories;
 

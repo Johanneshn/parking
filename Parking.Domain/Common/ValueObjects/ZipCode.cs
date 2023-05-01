@@ -1,8 +1,8 @@
 ﻿namespace Parking.Domain.Common.ValueObjects;
 
-public class ZipCode : ValueObject
+public partial class ZipCode : ValueObject
 {
-    private static readonly Regex regex = new Regex(@"^[0-9]{3}\s?[0-9]{2}$", RegexOptions.Compiled | RegexOptions.Singleline);
+    private static readonly Regex Regex = ZipCodeRegex();
 
     public ZipCode(string zipCode)
     {
@@ -20,10 +20,13 @@ public class ZipCode : ValueObject
 
     public override string ToString() => Value;
 
-    private static bool IsValid(string value) => regex.IsMatch(value);
+    private static bool IsValid(string value) => Regex.IsMatch(value);
 
     protected override IEnumerable<object> GetEqualityComponents()
     {
         yield return Value;
     }
+
+    [GeneratedRegex("^[0-9]{3}\\s?[0-9]{2}$", RegexOptions.Compiled | RegexOptions.Singleline)]
+    private static partial Regex ZipCodeRegex();
 }

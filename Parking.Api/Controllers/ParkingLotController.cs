@@ -21,10 +21,10 @@ public class ParkingLotController : ControllerBase
     }
 
     [HttpPost]
-    public IActionResult CreateParkingLot(CreateParkingLotRequest request)
+    public async Task<IActionResult> CreateParkingLot(CreateParkingLotRequest request)
     {
         var command = _mapper.Map<CreateParkingLotCommand>(request);
-        var result = _mediator.Send(command);
+        var result = await _mediator.Send(command);
 
         return Ok(result);
     }

@@ -15,7 +15,7 @@ public abstract class Entity
         }
     }
 
-    private List<INotification> _domainEvents = new List<INotification>();
+    private readonly List<INotification> _domainEvents = new List<INotification>();
     public IReadOnlyCollection<INotification> DomainEvents => _domainEvents.AsReadOnly();
 
     public void AddDomainEvent(INotification eventItem)

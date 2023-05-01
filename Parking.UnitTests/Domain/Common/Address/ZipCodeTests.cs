@@ -5,14 +5,10 @@ namespace Parking.UnitTests.Domain.Common.Address;
 public class ZipCodeTests
 {
     [Theory]
-    [InlineData("")]
-    [InlineData("AAAA")]
-    [InlineData("1111")]
-    [InlineData("111111")]
+    [MemberData(nameof(GetInvalidZipCodes))]
     public void ZipCode_ShouldThrowArgumentException_WhenInputIsInvalid(string input)
     {
-        // Arange
-        // Act
+        // Arrange & Act
         Action act = () => new ZipCode(input);
 
         // Assert
@@ -20,13 +16,22 @@ public class ZipCodeTests
     }
 
     [Fact]
-    public void ZipCode_ShouldCreatew_WhenInputIsValid()
+    public void ZipCode_ShouldCreateNew_WhenInputIsValid()
     {
-        // Arange
-        var input = "702 18";
+        // Arrange
+        const string input = "702 18";
         // Act
         var sut = new ZipCode(input);
         // Assert
         sut.Value.Should().BeEquivalentTo(input);
     }
-}
+
+    public static IEnumerable<object[]> GetInvalidZipCodes =>
+        new List<object[]>
+        {
+            new object[] { "" },
+            new object[] { "AAAA" },
+            new object[] { "111" },
+            new object[] { "111111" },
+        };
+} 
