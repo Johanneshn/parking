@@ -13,5 +13,8 @@ public sealed class ParkingLot : Entity, IAggregateRoot
     public Address Address { get; }
     public string InternalName { get; }
 
-    public override string ToString() => Address.Street;
+    public override string ToString()
+    {
+        return Address.Street;
+    }
 }

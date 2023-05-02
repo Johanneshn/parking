@@ -1,6 +1,5 @@
-﻿namespace Parking.Domain.SeedWork
+﻿namespace Parking.Domain.SeedWork;
+
+public interface IAggregateRoot
 {
-    public interface IAggregateRoot
-    {
-    }
 }

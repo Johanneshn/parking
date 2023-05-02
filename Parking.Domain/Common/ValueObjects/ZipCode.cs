@@ -8,19 +8,22 @@ public partial class ZipCode : ValueObject
     {
         var value = zipCode.Trim();
 
-        if (!IsValid(value))
-        {
-            throw new ArgumentException($"Zip code '{zipCode}' is in an incorrect format.");
-        }
+        if (!IsValid(value)) throw new ArgumentException($"Zip code '{zipCode}' is in an incorrect format.");
 
         Value = value;
     }
 
     public string Value { get; }
 
-    public override string ToString() => Value;
+    public override string ToString()
+    {
+        return Value;
+    }
 
-    private static bool IsValid(string value) => Regex.IsMatch(value);
+    private static bool IsValid(string value)
+    {
+        return Regex.IsMatch(value);
+    }
 
     protected override IEnumerable<object> GetEqualityComponents()
     {

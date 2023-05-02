@@ -1,29 +1,31 @@
-﻿using Parking.Domain.ParkingLot;
-using Parking.Domain.SeedWork;
-
-namespace Parking.Infrastructure.Repositories;
+﻿namespace Parking.Infrastructure.Repositories;
 
 internal class ParkingLotRepository : IParkingLotRepository
 {
-    public IUnitOfWork UnitOfWork { get; }
-        
+    private readonly ParkingLotDbContext _context;
+
+    public ParkingLotRepository(ParkingLotDbContext context)
+    {
+        _context = context ?? throw new ArgumentNullException(nameof(context));
+    }
+
+    public IUnitOfWork UnitOfWork => _context;
+
     public ParkingLot Add(ParkingLot parkingLot)
     {
-        throw new NotImplementedException();
+        return _context.Add(parkingLot).Entity;
     }
 
-    public ParkingLot Update(ParkingLot parkingLot)
+    public void Update(ParkingLot parkingLot)
     {
-        throw new NotImplementedException();
+        _context.Entry(parkingLot).State = EntityState.Modified;
     }
 
-    public Task<ParkingLot> FindAsync(string parkingLotIdentityGuid)
+    public async Task<ParkingLot?> GetAsync(int id)
     {
-        throw new NotImplementedException();
-    }
+        var parkingLot = await _context.ParkingLots.FirstOrDefaultAsync(p => p.Id == id);
+        if (parkingLot is null) parkingLot = _context.ParkingLots.Local.FirstOrDefault(p => p.Id == id);
 
-    public Task<ParkingLot> FindByIdAsync(string id)
-    {
-        throw new NotImplementedException();
+        return parkingLot;
     }
 }

@@ -3,7 +3,6 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Parking.Application.Contracts;
 using Parking.Application.Features.CreateParkingLot;
-using Parking.Application.Features.RegisterParking;
 
 namespace Parking.Api.Controllers;
 
@@ -11,8 +10,8 @@ namespace Parking.Api.Controllers;
 [Route("[controller]")]
 public class ParkingLotController : ControllerBase
 {
-    private readonly ISender _mediator;
     private readonly IMapper _mapper;
+    private readonly ISender _mediator;
 
     public ParkingLotController(ISender mediator, IMapper mapper)
     {
