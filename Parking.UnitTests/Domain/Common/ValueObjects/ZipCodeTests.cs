@@ -1,6 +1,4 @@
-﻿using Parking.Domain.Common.ValueObjects;
-
-namespace Parking.UnitTests.Domain.Common.Address;
+﻿namespace Parking.UnitTests.Domain.Common.ValueObjects;
 
 public class ZipCodeTests
 {
