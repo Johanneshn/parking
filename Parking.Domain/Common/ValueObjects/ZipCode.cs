@@ -8,7 +8,7 @@
 
         if (!IsValid(value))
         {
-            throw new ArgumentException($"Zip code '{zipCode}' is in an incorrect format.");
+            throw new ArgumentException($"Zip code '{zipCode}' is in an incorrect format.", nameof(zipCode));
         }
 
         Value = value;
