@@ -8,7 +8,7 @@ public record CreateParkingLotRequest(
     double Latitude);
 
 public record CreateParkingLotResponse(
-    Guid Id,
+    int Id,
     string Street,
     string City,
     string ZipCode,

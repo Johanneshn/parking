@@ -7,19 +7,23 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Mapster" Version="7.3.0"/>
-        <PackageReference Include="Mapster.DependencyInjection" Version="1.0.0"/>
-        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.1"/>
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0"/>
+        <PackageReference Include="Mapster" Version="7.3.0" />
+        <PackageReference Include="Mapster.DependencyInjection" Version="1.0.0" />
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.1" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.5">
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Parking.Application\Parking.Application.csproj"/>
-        <ProjectReference Include="..\Parking.Infrastructure\Parking.Infrastructure.csproj"/>
+        <ProjectReference Include="..\Parking.Application\Parking.Application.csproj" />
+        <ProjectReference Include="..\Parking.Infrastructure\Parking.Infrastructure.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="Common\Errors\"/>
+        <Folder Include="Common\Errors\" />
     </ItemGroup>
 
 </Project>

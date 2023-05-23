@@ -4,7 +4,7 @@ namespace Parking.Domain.ParkingLot;
 
 public sealed class ParkingLot : Entity, IAggregateRoot
 {
-    public ParkingLot(Address address, string internalName = "")
+    public ParkingLot(Address address, string internalName = "") 
     {
         Address = address;
         InternalName = internalName;

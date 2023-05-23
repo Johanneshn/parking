@@ -8,8 +8,9 @@ public static class DependencyInjectionRegister
     public static IServiceCollection AddPersistence(
         this IServiceCollection services)
     {
-        services.AddDbContext<ParkingLotDbContext>(options => options.UseInMemoryDatabase("database_name"));
-        services.AddSingleton<IParkingLotRepository, ParkingLotRepository>();
+        services.AddDbContext<ParkingLotDbContext>(options =>
+            options.UseSqlite("DataSource=parking.db"));
+        services.AddScoped<IParkingLotRepository, ParkingLotRepository>();
         return services;
     }
 }

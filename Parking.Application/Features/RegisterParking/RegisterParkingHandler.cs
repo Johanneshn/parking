@@ -7,6 +7,6 @@ public sealed record RegisterParkingHandler : IRequestHandler<RegisterParkingCom
 {
     public Task<CreateParkingLotResponse> Handle(RegisterParkingCommand request, CancellationToken cancellationToken)
     {
-        return Task.FromResult(new CreateParkingLotResponse(Guid.NewGuid(), null, null, null, 0, 0));
+        throw new NotImplementedException();
     }
 }
