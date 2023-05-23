@@ -15,6 +15,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\Parking.Application\Parking.Application.csproj"/>
+        <ProjectReference Include="..\Parking.Infrastructure\Parking.Infrastructure.csproj"/>
     </ItemGroup>
 
     <ItemGroup>

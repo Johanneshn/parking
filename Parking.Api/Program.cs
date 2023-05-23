@@ -1,13 +1,16 @@
 using Parking.Api.Common.Mapping;
 using Parking.Application;
+using Parking.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddPersistence();
 
-builder.Services.AddControllers();
 builder.Services.AddApplication();
 builder.Services.AddMappings();
+
+builder.Services.AddControllers();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
